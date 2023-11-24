@@ -3,14 +3,14 @@ import {auth} from '../firebase/firebase';
 
 export default function LoginView(){
 
-async function handleOnClic(){
+async function handleOnClick(){
     const googleProvider = new GoogleAuthProvider();
     await signInWithGoogle(googleProvider)
 }
 
-async function signInWithGoogle(googleProvider){
+async function signInWithGoogle(provider){
     try {
-        const res = await signInWithPopup(auth,googleProvider);
+        const res = await signInWithPopup(auth,provider);
         console.log(res);
     } catch (error) {
         console.error(error);
@@ -19,7 +19,7 @@ async function signInWithGoogle(googleProvider){
 
 return (
     <div>
-        <button onClick={handleOnClic}>
+        <button onClick={handleOnClick}>
             Login whith Google
         </button>
     </div>
